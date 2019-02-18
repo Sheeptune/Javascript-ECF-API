@@ -125,6 +125,7 @@ fetch("http://api-students.popschool-lens.fr/api/promotions")
 // When we click on the button ShowList
 // We display the students of a specific promotion in #mydiv
 
+
 var showList = document.querySelector("#btnShowList");
 showList.addEventListener('click', getStudents);
 
@@ -144,20 +145,23 @@ function getStudents(event) {
             console.log(students)
             // We give a value to the students table (the value of the table within the object)
             // students = myjson.students;
-
+    
             // We start to browse and display the students
-            promotion.students.forEach(function (student) {
+            promotion.students.forEach(function (studentURL) {
+                fetch("http://api-students.popschool-lens.fr" + studentURL)
+                .then(r => r.json())
+                .then(function(student) {  
+
                 console.log(student);
                 myDiv.innerHTML += `<div class="card" style="width: 18rem;">
                 <img class="card-img-top" src=".../100px180/" alt="">
                     <div class="card-body">
-                    <h5 class="card-title"> ${student.firstname}</h5>
-                    <p class="card-text">Nom : ${student.lastname}</p>
-                    <p class="card-text">Nom : Sexe : ${student.sex}</p>
-                    <a href="#" class="btn btn-primary id="btnDeleteCard">Delete</a> <a href="#" class="btn btn-primary" id="btnModifyCard">Modify</a>
+                    <h5 class="card-title"> ${student.firstname} ${student.lastname}</h5>
                     </div>
                     </div>`
             });
         });
-    }
+    })
+}
+
 
