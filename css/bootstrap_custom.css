@@ -1,0 +1,42 @@
+#mydiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+   
+.card {
+    margin: 10px;
+}
+
+
+.btn.btn-dark {
+    color: #fff;
+    background-color: rgb(64, 133, 56);
+    border-color: rgb(64, 133, 56);
+}
+
+h1{
+    color: #22285D;
+}
+
+#btnShowList{
+    color: #fff;
+    background-color:#22285D;
+    border-color:#22285D;
+}
+
+.col-lg-12{
+    margin-bottom: 0.7em;
+}
+
+.col{
+    margin-bottom: 0.7em;
+}
+
+.navbar{
+    margin-bottom: 2em;
+}

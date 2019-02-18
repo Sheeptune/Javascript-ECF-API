@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap_custom.css">
+    <script src="script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+          <img src="https://www.echosciences-hauts-de-france.fr/uploads/a_d/image/attachment/1005398081/xl_popschool.png" alt="Logo Popschool" width="30" height="30" class="d-inline-block align-top">
+          &nbsp;Exercice de gestion d'élèves
+        </a>
+      </nav>
+
+
+
+
+    <div class=container>
+    <!-- Promotion management -->
+        <div class=row>
+            <form class="col-lg-5 form">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <select id="inputState" class="form-control">
+                            </select>
+                        </div>
+                    </div>           
+                </div> 
+            </form>
+
+            <form class="col-lg-7 form">
+                    <div class="form-group">
+                        <div class="row">
+                            <a class="btn btn-dark col-lg-12" id="btnDeletePromo">Supprimer cette promotion</a>
+                        </div>  
+                        <div class="row">
+                            <input class="col-lg-12" id="newPromo">
+                        </div>  
+                        <div class="row">
+                            <a class="btn btn-dark col" id="btnAddPromo">Ajouter une promotion</a> &nbsp;
+                            <a class="btn btn-dark col" id="btnModifyPromo">Modifier cette promotion</a>
+                        </div> 
+                        <div class="row">
+                            <a class="btn btn-dark col-lg-12" id="btnShowList">Afficher les étudiants</a>
+                        </div>   
+        
+                    </div> 
+                </form>
+
+        </div>
+    </div>
+  
+    <!-- Student display -->
+    <div id="mydiv"></div>
+
+    
+
+
+
+</body>
+</html>
