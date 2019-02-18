@@ -80,3 +80,41 @@ fetch("http://api-students.popschool-lens.fr/api/promotions")
             // and see the changes
         });
     }
+
+    // MODIFICATION
+    var btnModifyPromo = document.querySelector("#btnModifyPromo");
+    // We create an eventlistener with an anonymous function in parameter
+    btnModifyPromo.addEventListener('click', function () {
+        let SelectProm = document.querySelector('#inputState')
+
+        // The anonymous function ask to confirm the modification 
+        if (confirm("Remplacer la promo : " + SelectProm.value + " ?")) {
+            // Then the function run the modifyPromotion and replaces the text
+            modifyPromotion(SelectProm.value);
+        }
+    })
+
+    // This is the function used to replace the text in the API
+    // It catches the text written in the input field
+
+    function modifyPromotion(idPromo) {
+        fetch("http://api-students.popschool-lens.fr/api/promotions/"+ idPromo ,{
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            // We use the "PUT" method on the fetch to modify the existing string
+            method: "PUT",
+
+            // We transform th value of the input newPromo into a JSON string with stringify
+            body: JSON.stringify({
+                name: newPromo.value
+            })
+        })
+            .then(response => response.json())
+            .then(promo => {
+                console.log(promo.name + "modifié")
+            })
+            .catch()
+    }
