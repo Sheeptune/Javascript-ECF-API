@@ -23,4 +23,34 @@ fetch("http://api-students.popschool-lens.fr/api/promotions")
             SelectProm.innerHTML += "<option value=" + promotion.id + ">" + promotion.id + "." + promotion.name + "</li> <br> </option>";
         });
     });
-    
+
+    // Declaration of an empty table to get the JSON datas back
+    // addPromo refers to the empty field (input)
+    // btnAddPromo refers to the button
+    var listPromo = [];
+    var addPromo = document.querySelector("#addPromo");
+    var btnAddPromo = document.querySelector("#btnAddPromo");
+
+    // When you click on this button, you call a createPromotion function
+    // This function catches the text written in the input field
+    btnAddPromo.addEventListener('click', createPromotion)
+    function createPromotion() {
+        fetch("http://api-students.popschool-lens.fr/api/promotions", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            // we use the "POST" method on the fetch to add new promotions 
+            // to the existing string and we use stringify to transform the 
+            // text into a JSON string
+            method: "POST",
+            body: JSON.stringify({
+                name: newPromo.value
+            })
+        })
+            .then(response => response.json())
+            .then(promo => {
+                console.log(promo.name + "créé")
+            })
+            .catch()
+    }
