@@ -54,3 +54,29 @@ fetch("http://api-students.popschool-lens.fr/api/promotions")
             })
             .catch()
     }
+
+    // Declaration of a variable on the button Delete Promo
+    var btnDeletePromo = document.querySelector("#btnDeletePromo");
+    // We create an eventlistener with an anonymous function in parameter
+    btnDeletePromo.addEventListener('click', function () {
+    let SelectProm = document.querySelector('#inputState')
+
+    // We ask the user to confirm the deletion with a pop up
+    if (confirm("Supprimer la promo : " + SelectProm.value + " ?")) {
+
+        // The user confirm it so we run the DeletePromotion function
+        deletePromotion(SelectProm.value);
+    }
+    })
+
+    // This is the DeletePromotion function
+    function deletePromotion(idPromo) 
+    {
+        fetch("http://api-students.popschool-lens.fr/api/promotions/" + idPromo, {
+        method: "DELETE"
+        })
+        .then(function (response) {
+            // You need to press ctrl+R to refresh the page
+            // and see the changes
+        });
+    }
